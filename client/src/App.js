@@ -10,27 +10,29 @@ import Points from './components/Points/Points';
 
 class App extends Component {
 
-  constructor(props) { //A constructor, that initializes tshe default state
-    super(props);
-    this.state = { user: "" };
-  
-  }
+  state = { user: null}
 
-  //componentWillMount() { // A react lifecycle method called componentDidMount(), that will execute the callAPI() method after the component mounts
-    //this.callAPI();
-  //}
+  handleChange = (newValue) => {
+    this.setState({ user: newValue });
+  }
+  
   
   render() {
     if(!this.state.user) {
-      console.log (this.state.user+ "@@@@@" );
-      return <Login />
+      return(
+          <Login user={this.state.user} onChange={this.handleChange}/>
+      );
     }
     else {
       return (
         <div className="wrapper">
-          <h1>DENEPS</h1>
+          <div className="pageHeader">
+          </div>
           <BrowserRouter>
             <Switch>
+            <Route path="/">
+                <Dashboard />
+              </Route>
               <Route path="/dashboard">
                 <Dashboard />
               </Route>
