@@ -23,7 +23,12 @@
     "start": "PORT=3010 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "postcss": "8.2.10",
+    "browserslist": "14.16.5"
   },
   "eslintConfig": {
     "extends": [
