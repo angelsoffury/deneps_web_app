@@ -10,10 +10,16 @@
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "express": "^4.16.4",
+    "express-mysql-session": "^2.1.6",
+    "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
-    "morgan": "~1.9.1"
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "mysql8.0": "^1.1.2",
+    "webex-node-bot-framework": "^2.3.6"
   },
-  "WEBEX_BOT_TOKEN": "MWE0ODFhYmEtYjRkNS00YTIwLWE3ZTAtYjEwOTY4YWQzMDU0NjIxNjU5YTktMzBj_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f"
+  "WEBEX_BOT_TOKEN": "MzM1NjEyYmUtYzJkZS00NGE3LWIzMGQtNTM3NDE5ZTVhOTk5NTY0YjBmYWItZWI4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f"
 }

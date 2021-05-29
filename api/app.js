@@ -1,13 +1,33 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require("cors");
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require ('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+const cors = require("cors");
+const loginRouter = require("./routes/login");
 
-var loginRouter = require("./routes/login");
 
-var app = express();
+const app = express();
+
+// db.getConnection(function(err,conn){
+//   conn.query('Select * from user', function(err, result, fields){
+//   console.log(result);
+//   })
+//   conn.end();
+// });
+
+  app.use(session ({
+    secret: 'rfhufkhgio74tr1',
+    resave:false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge:(1 * 3600000),
+      httpOnly:false
+    }
+  }));
+
 
  //view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,19 +41,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', loginRouter);
-app.use('/login/:email', loginRouter);
-
-/* catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-  res.status(err.status || 500).send('error');
-});
-*/
-
+app.use('/isValidUser', loginRouter);
+app.use('/login', loginRouter);
+app.use('/isLoggedIn',loginRouter);
+app.use('/loginCardAuth',loginRouter)
+app.use('/logout',loginRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+  console.log("Im in app Error",err);
+
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
