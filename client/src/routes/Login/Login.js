@@ -4,7 +4,8 @@ import SubmitButton from '../../components/SubmitButton';
 import UserStore from '../../stores/UserStore';
 import logo from '../../cisco_logo_grey.png';
 import './Login.css';
-import DropDown from '../../components/DropDown';
+//import DropDown from '../../components/DropDown.jsx';
+import { Dropdown } from 'reactjs-dropdown-component';
 import { runInAction} from "mobx"
 
 class Login extends React.Component{
@@ -198,7 +199,7 @@ class Login extends React.Component{
         <label>Cisco Email</label>
       </div>
 
-        <DropDown
+        <Dropdown
           name="counties"
           title={this.state.userCountry?this.state.userCountry: "Select your country"}
           searchable={["Search for country", "No matching country"]}

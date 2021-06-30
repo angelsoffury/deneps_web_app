@@ -62,7 +62,7 @@ router.post('/login', function(req, res) {
 var dbuser=[];
 try{
   if (!req.session.dualauth) throw new Error("User not authenticated!");
-  db.getConnection(function(err,conn){
+  /*db.getConnection(function(err,conn){
     if(err) throw new Error ("DB connection error");
       // [[TO BE IMPLEMENTED]] add country filter
     conn.query("SELECT * FROM user WHERE useremail = '"+req.body.useremail+"'", function(err, results, fields){
@@ -80,6 +80,10 @@ try{
     // })
     conn.release();
   }); 
+  */
+ res.json({
+  success: true
+ });
 
 }catch(error){
   console.log(error.message);
