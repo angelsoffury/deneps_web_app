@@ -22,7 +22,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "sudo PORT=443 react-scripts start",
+    "start": "sudo PORT=3010 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

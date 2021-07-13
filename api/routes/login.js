@@ -4,10 +4,13 @@ const express = require('express');
 const https = require('https')
 const moment = require('moment');
 const router = express.Router();
-const WEBEX_BOT_TOKEN = require('../package.json').WEBEX_BOT_TOKEN
+const dotenv = require('dotenv');
+dotenv.config();
+const WEBEX_BOT_TOKEN = process.env.WEBEX_BOT_TOKEN;
 const createAdaptiveCard=require('./webexCard');
 var db=require('./db')
 
+console.log ("WEbex bot token", WEBEX_BOT_TOKEN);
 
 router.post('/isValidUser',function(req,res){
   var user={};
