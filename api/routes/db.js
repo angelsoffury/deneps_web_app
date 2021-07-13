@@ -2,7 +2,6 @@ var mysql = require('mysql8.0');
 const dotenv = require('dotenv');
 dotenv.config();
 const DB_password=process.env.DB_password;
-console.log("DB password is", DB_password);
 
 var db = mysql.createPoolCluster();
 

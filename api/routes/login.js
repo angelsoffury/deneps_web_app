@@ -10,8 +10,6 @@ const WEBEX_BOT_TOKEN = process.env.WEBEX_BOT_TOKEN;
 const createAdaptiveCard=require('./webexCard');
 var db=require('./db')
 
-console.log ("WEbex bot token", WEBEX_BOT_TOKEN);
-
 router.post('/isValidUser',function(req,res){
   var user={};
   axios.get('https://webexapis.com/v1/people?email='+req.body.useremail, {
