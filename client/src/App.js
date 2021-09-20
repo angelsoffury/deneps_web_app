@@ -5,7 +5,10 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './routes/Login/Login';
 import Dashboard from './routes/Dashboard/Dashboard';
+import Requests from './routes/Requests/Requests';
+import Orders from './routes/Orders/Orders';
 import Points from './routes/Points/Points';
+import Admin from './routes/Admin/Admin';
 import SubmitButton from './components/SubmitButton';
 import UserStore from './stores/UserStore';
 import { runInAction} from "mobx"
@@ -105,6 +108,7 @@ class App extends React.Component {
               <a href="/dashboard" >Home</a>
               <a href="/points " >Points</a>
               <a href="/requests" >Requests</a>
+              <a href="/orders" >Orders</a>
               <a href="/admin">Admin</a>
           </div>
           <div className="app-content ">
@@ -120,6 +124,15 @@ class App extends React.Component {
               <Route path="/points">
                 <Points />
               </Route>
+              <Route path="/requests">
+                <Requests/>
+              </Route>
+              <Route path="/orders">
+                <Orders/>
+              </Route>
+              <Route path="/admin">
+                <Admin/>
+              </Route>
             </Switch>
           </BrowserRouter>
           </div>
@@ -134,73 +147,6 @@ class App extends React.Component {
     } 
   }
 }
-  /* state = { userString: null,user:null}
 
-  handleChange = (newValue) => {
-    setTimeout(() =>{
-      this.setState({userString: newValue},()=>{console.log( this.state.userString)});
-    }, 10);
-    
-  }
-
-  openNav=()=>{
-    document.getElementById("mySidenav").style.width = "250px";
-    //document.getElementById("main").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-  }
-  
-  closeNav=()=> {
-    document.getElementById("mySidenav").style.width = "0";
-    //document.getElementById("main").style.marginLeft= "0";
-    document.body.style.backgroundColor = "white";
-  }
-  
-  
-  render() {
-    if(!this.state.userString) { //Make it ! to enable login
-      return(
-          <Login onChange={this.handleChange}/>
-      );
-    }
-    else {
-      return (
-        <div className="wrapper">
-          <div className="appHeader">
-            {//<span id="App-sidebar" onClick={this.openNav} alt ="sidebar"> &#9776;</span>
-            }
-            <img src={logo} className="appLogo" alt="logo" />
-            <div className= "appHeaderText">DENEPS</div>
-          </div>
-          <div id="mySidenav" className="sidenav">
-              {//<a href="#" class="closebtn" onClick={this.closeNav}>&times;</a>
-              }
-              <a href="/dashboard" >Home</a>
-              <a href="/points " >Points</a>
-              <a href="/requests" >Requests</a>
-              <a href="/admin">Admin</a>
-          </div>
-          <div className="appContent">
-          <div >{this.state.user}</div>
-          <BrowserRouter>
-            <Switch>
-            <Route exact path="/">
-                <Dashboard />
-              </Route>
-              <Route path="/dashboard">
-                <Dashboard />
-              </Route>
-              <Route path="/points">
-                <Points />
-              </Route>
-            </Switch>
-          </BrowserRouter>
-
-          </div>
-        </div>
-      );
-    }
-  }
-}
-*/
 
 export default observer(App);
